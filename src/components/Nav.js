@@ -20,6 +20,10 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
 export default Nav;
 
 const StyledNav = styled.div`
+
+  h1 {
+    color: #fff;
+  }
   .nav {
     min-height: 10vh;
     display: flex;
@@ -30,13 +34,15 @@ const StyledNav = styled.div`
     background: transparent;
     border: none;
     cursor: pointer;
-    border: 2px solid rgb(65, 65, 65);
+    border-radius: 6px;
+    color: #fff;
+    border: 2px solid rgb(65, 65, 65, 0.5);
     padding: 0.5rem;
     transition: all 0.5s ease;
 
     &:hover {
-      background: rgb(65, 65, 65);
-      color: white;
+      background: #fff;
+      color: rgb(65, 65, 65);
     }
   }
 

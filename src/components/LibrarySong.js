@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const Song = ({ song, setCurrentSong, audioRef, isPlaying, setSongs, songs, id }) => {
   const songSelectHandler = async () => {

@@ -44,35 +44,41 @@ function App() {
   };
 
   return (
-    <StyledApp className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player
-        setSongs={setSongs}
-        setCurrentSong={setCurrentSong}
-        songs={songs}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        currentSong={currentSong}
-      />
-      <Library
-        libraryStatus={libraryStatus}
-        songs={songs}
-        audioRef={audioRef}
-        setCurrentSong={setCurrentSong}
-        isPlaying={isPlaying}
-        setSongs={setSongs}
-      />
-      <audio
-        onLoadedMetadata={timeUpdateHandler}
-        onTimeUpdate={timeUpdateHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-        onEnded={songEndHandler}
-      ></audio>
+    <StyledApp
+      style={{
+        background: `linear-gradient(160deg, ${currentSong.color[0]} 0%, ${currentSong.color[1]} 100%)`,
+      }}
+    >
+      <div className={`App ${libraryStatus ? "library-active" : ""}`}>
+        <Nav libraryStatus={libraryStatus} currentSong={currentSong} setLibraryStatus={setLibraryStatus} />
+        <Song currentSong={currentSong} />
+        <Player
+          setSongs={setSongs}
+          setCurrentSong={setCurrentSong}
+          songs={songs}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentSong={currentSong}
+        />
+        <Library
+          libraryStatus={libraryStatus}
+          songs={songs}
+          audioRef={audioRef}
+          setCurrentSong={setCurrentSong}
+          isPlaying={isPlaying}
+          setSongs={setSongs}
+        />
+        <audio
+          onLoadedMetadata={timeUpdateHandler}
+          onTimeUpdate={timeUpdateHandler}
+          ref={audioRef}
+          src={currentSong.audio}
+          onEnded={songEndHandler}
+        ></audio>
+      </div>
     </StyledApp>
   );
 }
@@ -80,28 +86,7 @@ function App() {
 export default App;
 
 const StyledApp = styled.div`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Lato", sans-serif;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: rgb(54, 54, 54);
-  }
-
-  h3,
-  h4 {
-    font-weight: 400;
-    color: rgb(100, 100, 100);
-  }
-
+  min-height: 100vh;
   .App {
     transition: all 0.5s ease;
   }

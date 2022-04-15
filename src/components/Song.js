@@ -31,10 +31,12 @@ const StyledSong = styled.div`
 
   h2 {
     padding: 3rem 1rem 1rem;
+    color: #fff;
   }
 
   h3 {
     font-size: 1rem;
+    color: #fff;
   }
 
   /* Desktops and laptops ----------- */
